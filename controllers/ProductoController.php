@@ -7,18 +7,15 @@ class productoController{
     }
 
     public function index(){
-        echo 'controlador de productos';
+        require_once 'views/productoView.php';
     }
 
     public function save(){
-
-        echo 'metodo de guardado';
-
         $producto = new Producto();
+        $producto->setModelo('hp 23 2TB SSD');
+        $producto->setEspecificaciones('color gris');
+        $producto->setPrecio(12599.00);
 
-
-        $mensaje = $producto->save();
-
-        echo $mensaje;
+        echo $producto->save();
     }
 }

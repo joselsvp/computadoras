@@ -56,14 +56,12 @@ class Producto {
     }
 
     public function save(){
-        echo 'modelo de guardado';
-
-        $sql = "INSERT INTO productos Values(NULL, 'laptop', 'ryzen 7 8gb ram + 2TB SSD', 33500.99) ";
+        $sql = "INSERT INTO productos Values(NULL, '{$this->getModelo()}', '{$this->getEspecificaciones()}', '{$this->getPrecio()}') ";
 
         $statement = Connection::getConnection()->prepare($sql);
 
         $statement->execute();
 
-        return "se ha guardado el producto";
+        return "Se ha guardado el producto";
     }
 }

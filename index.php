@@ -2,7 +2,7 @@
 require_once 'autoload.php';
 require_once 'util/config/Config.php';
 require_once 'database/Connection.php';
-
+require_once 'views/templates/header.php';
 
 $nombreControlador = '';
 if(isset($_GET['controller'])){

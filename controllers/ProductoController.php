@@ -1,5 +1,6 @@
 <?php
 require_once 'models/Producto.php';
+require_once 'models/Categoria.php';
 
 class productoController{
 
@@ -7,6 +8,7 @@ class productoController{
     }
 
     public function index(){
+        $categories = (new Categoria())->findAllCategoriesAndSubcategories() ;
         require_once 'views/productoView.php';
     }
 

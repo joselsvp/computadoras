@@ -65,15 +65,13 @@ $getProducts = $products;
 </nav>
 
 <section class="home">
-    <div class="text">Listado de productos
-    </div>
+    <div class="text"><i class="fas fa-star"></i> Productos destacados</div>
 
     <div class="container">
         <div class="container-cards">
             <?php
-
             if (!empty($getProducts)){
-                foreach ($getProducts as $product){ ?>
+                foreach ($getProducts as $key => $product){ ?>
                     <div class="card">
                         <div class="card-header" style="text-align: center">
                             <img src="<?= $product['url_image'] ?>" alt="<?= $product['modelo'] ?>" style="background-position: center; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; width: 200px">

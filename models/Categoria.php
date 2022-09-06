@@ -86,7 +86,7 @@ class Categoria{
     }
 
     public function findAllCategoriesAndSubcategories(){
-        $sql = 'select id, nombre, categoria_hija from categorias';
+        $sql = 'select id, nombre, categoria_hija, icon from categorias';
 
         $statement = Connection::getConnection()->prepare($sql);
         $statement->setFetchMode(\PDO::FETCH_ASSOC);

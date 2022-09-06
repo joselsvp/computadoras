@@ -41,8 +41,7 @@ $getProducts = $products;
                         <ul class="menu-links">
                             <li class="nav-link">
                                 <a href="#" class="category text nav-tex" id="<?=$categories['id'] ?>">
-                                    <i class="fas fa-desktop" style="margin-right: 10px"></i>
-                                    <?= ucfirst($categories['nombre']) ?>
+                                    <?= $categories['icon']?> &nbsp; <?= ucfirst($categories['nombre']) ?>
                                     <i class="fas fa-caret-down" style="margin-left: 10px"></i>
                                 </a>
                             </li>
@@ -52,7 +51,7 @@ $getProducts = $products;
                         <ul class="menu-links subcategorias_<?=$categories['categoria_hija'] ?>" style="display: none; margin-left: 8px; font-size: 14px">
                             <li class="nav-link">
                                 <a href="#">
-                                    <i class="far fa-thumbs-down"></i>
+                                    <?= $categories['icon']; ?>
                                     <span class="text nav-text" style="font-size: 14px"><?= ucfirst($categories['nombre']) ?></span>
                                 </a>
                             </li>

@@ -6,6 +6,8 @@ class Producto {
     private $modelo;
     private $especificaciones;
     private $precio;
+    private $subcategory_id;
+    private $url_image;
 
     /**
      * @return mixed
@@ -55,13 +57,57 @@ class Producto {
         $this->precio = $precio;
     }
 
+    /**
+     * @return mixed
+     */
+    public function getSubcategoryId()
+    {
+        return $this->subcategory_id;
+    }
+
+    /**
+     * @param mixed $subcategory_id
+     */
+    public function setSubcategoryId($subcategory_id)
+    {
+        $this->subcategory_id = $subcategory_id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getUrlImage()
+    {
+        return $this->url_image;
+    }
+
+    /**
+     * @param mixed $url_image
+     */
+    public function setUrlImage($url_image)
+    {
+        $this->url_image = $url_image;
+    }
+
+
     public function save(){
-        $sql = "INSERT INTO productos Values(NULL, '{$this->getModelo()}', '{$this->getEspecificaciones()}', '{$this->getPrecio()}') ";
+        $sql = "INSERT INTO productos Values(NULL, '{$this->getModelo()}', '{$this->getEspecificaciones()}', '{$this->getPrecio()}','{$this->getSubcategoryId()}', '{$this->getUrlImage()}' ) ";
 
         $statement = Connection::getConnection()->prepare($sql);
 
         $statement->execute();
 
         return "Se ha guardado el producto";
+    }
+
+    public function findAllProducts(){
+        $sql = 'SELECT p.id, p.modelo, p.especificaciones, p.precio, p.url_image, c.nombre as categoria FROM productos p
+                inner join categorias c on c.id = p.subcategory_id';
+
+        $statement = Connection::getConnection()->prepare($sql);
+        $statement->setFetchMode(\PDO::FETCH_ASSOC);
+
+        $statement->execute();
+        return $statement->fetchAll();
     }
 }

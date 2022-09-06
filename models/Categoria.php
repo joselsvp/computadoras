@@ -94,4 +94,14 @@ class Categoria{
         $statement->execute();
         return $statement->fetchAll();
     }
+
+    public function findAllSubcategories(){
+        $sql = 'select id, nombre, categoria_hija from categorias where categoria_hija != 0';
+
+        $statement = Connection::getConnection()->prepare($sql);
+        $statement->setFetchMode(\PDO::FETCH_ASSOC);
+
+        $statement->execute();
+        return $statement->fetchAll();
+    }
 }

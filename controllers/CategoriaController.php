@@ -10,7 +10,7 @@ class CategoriaController
     public function create(){
         $categoriasArray =
             array(
-                'computadoras' => array('laptops', 'escritorio', 'tables', 'portátiles'),
+                'cómputo' => array('laptops', 'computadoras','tablets', 'servidores'),
                 'audio' => array('audifonos', 'micrófonos', 'bocinas', 'manos libres'),
                 'monitores' => array('monitores', 'ultrawide', 'proyectores'),
                 'almacenamiento' => array('tarjetas de memorias', 'discos HDD', 'SSD', 'discos duros externos'),

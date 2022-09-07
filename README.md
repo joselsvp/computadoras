@@ -18,3 +18,5 @@ Nivel elegido: Básico
 Instrucciones:
 
 Actividades Completadas:
+
+

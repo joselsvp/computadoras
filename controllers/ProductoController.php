@@ -1,6 +1,7 @@
 <?php
 require_once 'models/Producto.php';
 require_once 'models/Categoria.php';
+require_once 'models/Comentario.php';
 
 class productoController{
 
@@ -49,6 +50,8 @@ class productoController{
             if($product_content){
                 $categories = (new Categoria())->findAllCategoriesAndSubcategories() ;
                 $products = (new Producto())->findAllProducts();
+                $comments = (new Comentario())->findCommentByProductId(base64_decode($_GET['id']));
+                error_log(print_r($comments, true));
                 require_once 'views/productoShow.php';
 
             }

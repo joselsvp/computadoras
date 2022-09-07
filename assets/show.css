@@ -57,27 +57,6 @@
 }
 
 
-
-
-input[type="radio"] {
-    display: none;
-}
-
-label {
-    color: grey;
-    font-size: 20px;
-}
-
-.clasificacion {
-    direction: rtl;
-    unicode-bidi: bidi-override;
-}
-
-
-input[type="radio"]:checked ~ label {
-    color: orange;
-}
-
 @media all and (max-width: 1000px) {
     .breadcrumb {
         height: 35px;

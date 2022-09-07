@@ -2,6 +2,7 @@
 $getCategories = $categories;
 $getProducts = $products;
 $product = $product_content;
+$getComments = $comments;
 
 ?>
 
@@ -103,26 +104,50 @@ $product = $product_content;
 
     <div class="container-cards">
 
-        <div class="card" style="width: 800px">
-            <div class="" style="padding: 20px">
-                <span class="tag tag-color">Bueno</span>
+        <?php
+        if(!empty($comments)){
 
-                <span class="clasificacion" style="text-align: right">
-                    <input id="radio1" type="radio" name="estrellas" value="5"><!--
-                    --><label for="radio1">★</label><!--
-                    --><input id="radio2" type="radio" name="estrellas" value="4"><!--
-                    --><label for="radio2">★</label><!--
-                    --><input id="radio3" type="radio" name="estrellas" value="3" checked><!--
-                    --><label for="radio3">★</label><!--
-                    --><input id="radio4" type="radio" name="estrellas" value="2"><!--
-                    --><label for="radio4">★</label><!--
-                    --><input id="radio5" type="radio" name="estrellas" value="1"><!--
-                    --><label for="radio5">★</label>
-                </span>
-                <p class="content-product"><strong><?= $product['modelo'] ?></strong></p>
+            foreach ($comments as $comment){?>
+                <div class="card" style="width: 100%; font-size: 12px; margin: 10px 40px;">
+                    <div class="" style="padding: 20px">
+                        <?php
+                        switch ($comment['calificacion']){
+                            case 1: ?>
+                                <span class="tag tag-color-red">Malo</span> 1 estrella
+                                <?php
+                                break;
+                            case 2:?>
+                                <span class="tag tag-color-orange">Regular</span> 2 estrellas
+                                <?php
+                                break;
+                            case 3:?>
+                                <span class="tag tag-color-orange">Regular</span> 3 estrellas
+                                <?php
+                                break;
+                            case 4:?>
+                                <span class="tag tag-color-green">Bueno</span> 4 estrellas
+                                <?php
+                                break;
+                            case 5:?>
+                                <span class="tag tag-color-green">Excelente</span> 5 estrellas
+                                <?php
+                                break;
+                        }
+                        ?>
 
-            </div>
-        </div>
+                        <p class="content-product" style="font-size: 12px"><strong><?= $comment['nombre'] ?></strong></p>
+                        <p><?= $comment['texto'] ?></p>
+
+                    </div>
+                </div>
+            <?php
+            }?>
+        <?php
+
+        }
+
+        ?>
+
     </div>
 
 </section>

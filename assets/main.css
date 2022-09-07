@@ -90,6 +90,17 @@ body{
     background-color: #0a7081;
 }
 
+.tag-color-red {
+    background-color: #850129;
+}
+.tag-color-orange {
+    background-color: #da7600;
+}
+
+.tag-color-green{
+    background-color: #5bb405;
+}
+
 .content-product {
     padding: 5px 0;
     font-size: 0.8rem;

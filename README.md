@@ -20,3 +20,6 @@ Instrucciones:
 Actividades Completadas:
 
 
+![image](https://user-images.githubusercontent.com/54222990/189002635-1e6ba9c0-0263-4fe0-ae62-b2018d336559.png)
+
+

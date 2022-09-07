@@ -194,6 +194,7 @@ body{
     align-items: center;
     height: 100%;
     width: 100%;
+    color: #4016a5;
     border-radius: 6px;
     text-decoration: none;
     transition: var(--tran-03);

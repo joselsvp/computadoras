@@ -63,6 +63,7 @@ class productoController{
         return $productsOrder;
     }
     public function create(){
+        //pra obtener productos en este caso, se tiene que crear cuenta en developers mercado libre
         $test = $this->fetchDetails('POST', 'https://api.mercadolibre.com/sites/MLA/search?q=antivirus',['Bearer APP_USR-8277320465459955-090512-6445e6fa3abc93ea29d62e56ed5d6da2-163670432']);
         $test  = json_decode(json_encode($test), true);
         $test = json_decode($test);

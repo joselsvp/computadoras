@@ -13,8 +13,34 @@ class productoController{
         if (isset($_GET['id'])){
             $products = (new Producto())->findProductBySubcategoryId(base64_decode($_GET['id']));
         }else{
-            $products = (new Producto())->findAllProducts();
-            error_log(print_r($products, true));
+            $productsAux = (new Producto())->findAllProducts(); //recopilamos todos los productos
+
+            $productos_destacados = array_rand($productsAux, 10); //establecemos que serán 10 productos destacados
+
+            $productsOrder = array();
+
+            $auxProductos = array();
+
+            $contador = 1;
+            $contador_general = 10; //máxima cantidad de productos destacados
+
+            foreach ($productsAux as $key => $product){
+                if(in_array($key, $productos_destacados)){
+                    $product["posicion"] = $contador;
+                    $contador++;
+                }else{
+                    $product["posicion"] = $contador_general;
+
+                    $contador_general ++ ;
+                }
+
+                $aux[$key] = $product['posicion'];
+
+                $productsOrder[] = $product;
+            }
+
+            array_multisort($aux, SORT_ASC, $productsOrder);
+            $products = $productsOrder; //una vez ordenados y selccionado los productos destacados aleatoriamente, lo enviamos a la vista
         }
 
         require_once 'views/productoIndex.php';

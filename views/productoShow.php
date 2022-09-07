@@ -23,6 +23,8 @@ require_once 'sidebar.php'
                 <p class="" style="margin-top: 10px"><strong>Especificaciones </strong><?= $product['especificaciones'] ?></p>
 
                 <span style="font-size: 45px; font-weight: bold; color: #4016a5">$ <?= number_format($product['precio'], 2 ) ?> MXN</span>
+
+                <span><b><?=number_format($product['vendidos'], 0)?></b> Vendidos</span>
             </div>
         </div>
 

@@ -1,6 +1,7 @@
 <?php
 $getCategories = $categories;
 $getProducts = $products;
+$getProductsFamous = $productos_destacados;
 
 require_once 'sidebar.php'
 ?>
@@ -13,11 +14,15 @@ require_once 'sidebar.php'
         <div class="container-cards">
             <?php
             if (!empty($getProducts)){
-                foreach ($getProducts as $key => $product){ ?>
+                foreach ($getProducts as $key => $product){
+                    ?>
                     <a href="<?=base_url?>producto/show?id=<?=base64_encode($product['id'])?>" title="Ver <?= $product['modelo'] ?>">
                         <div class="card">
-                            <div class="product-famous"><i class="fas fa-star"></i> Producto destacado</div>
-
+                            <?php
+                            if($key <= 10){ ?>
+                                <div class="product-famous"><i class="fas fa-star"></i> Producto destacado</div>
+                                <?php
+                            } ?>
                             <div class="card-header" style="text-align: center">
                                 <img src="<?= $product['url_image'] ?>" alt="<?= $product['modelo'] ?>" style="background-position: center; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; width: 200px">
                             </div>

@@ -72,24 +72,28 @@ $getProducts = $products;
             <?php
             if (!empty($getProducts)){
                 foreach ($getProducts as $key => $product){ ?>
-                    <div class="card">
-                        <div class="card-header" style="text-align: center">
-                            <img src="<?= $product['url_image'] ?>" alt="<?= $product['modelo'] ?>" style="background-position: center; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; width: 200px">
-                        </div>
-                        <div class="card-body">
-                            <span class="tag tag-color"><?= $product['categoria'] ?></span>
-                            <p class="content-product"><?= $product['modelo'] ?></p>
-                            <div class="user">
-                                <i class="fas fa-users"></i>
-                                <div class="user-info">
-                                    <h5>Comentarios</h5>
-                                    <small>Ninguno</small>
+                    <a href="" title="Ver <?= $product['modelo'] ?>">
+                        <div class="card">
+                            <div class="card-header" style="text-align: center">
+                                <img src="<?= $product['url_image'] ?>" alt="<?= $product['modelo'] ?>" style="background-position: center; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; width: 200px">
+                            </div>
+                            <div class="card-body">
+                                <span class="tag tag-color"><?= $product['categoria'] ?></span>
+                                <p class="content-product"><?= $product['modelo'] ?></p>
+                                <div class="user">
+                                    <i class="fas fa-users"></i>
+                                    <div class="user-info">
+                                        <h5>Comentarios</h5>
+                                        <small>Ninguno</small>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </a>
                 <?php
                 }
+            }else{
+                echo  "<strong>Lo sentimos, por el momento no hay registro de productos. </strong>";
             }
             ?>
         </div>

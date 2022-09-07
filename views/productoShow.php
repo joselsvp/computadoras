@@ -8,7 +8,7 @@ require_once 'sidebar.php'
 
 <section class="home">
     <div class="title-subcategory">
-        <?= ucfirst($product['categoria']) ?>
+         <?= $product['icono_categoria'] . ' ' . ucfirst($product['categoria']) ?>
     </div>
     <div class="container-cards">
         <div class="card">

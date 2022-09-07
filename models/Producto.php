@@ -131,7 +131,7 @@ class Producto {
     }
 
     public function findProductById($product_id){
-        $sql = 'SELECT p.id, p.modelo, p.especificaciones, p.precio, p.url_image, p.vendidos, c.nombre as categoria FROM productos p
+        $sql = 'SELECT p.id, p.modelo, p.especificaciones, p.precio, p.url_image, p.vendidos, c.icon as icono_categoria, c.nombre as categoria FROM productos p
                 inner join categorias c on c.id = p.subcategory_id where p.id = :id';
 
         $statement = Connection::getConnection()->prepare($sql);

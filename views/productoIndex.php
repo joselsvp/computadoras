@@ -1,7 +1,6 @@
 <?php
 $getCategories = $categories;
 $getProducts = $products;
-$getProductsFamous = $productos_destacados;
 
 require_once 'sidebar.php'
 ?>
@@ -19,10 +18,20 @@ require_once 'sidebar.php'
                     <a href="<?=base_url?>producto/show?id=<?=base64_encode($product['id'])?>" title="Ver <?= $product['modelo'] ?>">
                         <div class="card">
                             <?php
-                            if($key <= 10){ ?>
-                                <div class="product-famous"><i class="fas fa-star"></i> Producto destacado</div>
-                                <?php
-                            } ?>
+                            if(isset($product['destacado'])){
+                                if ($product['destacado']){?>
+                                    <div class="product-famous"><i class="fas fa-star"></i> Producto destacado</div>
+                                    <?php
+                                }
+                            }
+
+                            if(isset($product['vendido'])){
+                                if ($product['vendido']){?>
+                                    <div class="product-famous" style="color: #2b9f06"><i class="fas fa-star"></i> Producto más vendido</div>
+                                    <?php
+                                }
+                            }
+                            ?>
                             <div class="card-header" style="text-align: center">
                                 <img src="<?= $product['url_image'] ?>" alt="<?= $product['modelo'] ?>" style="background-position: center; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; width: 200px">
                             </div>

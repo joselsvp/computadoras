@@ -155,6 +155,18 @@ class Producto {
         return $statement->fetchAll();
     }
 
+    public function findProductMostSold($except_product, $amount = 10){
+        $sql = 'SELECT p.id FROM productos p where  id != :id order by p.precio desc limit :amount';
+
+        $statement = Connection::getConnection()->prepare($sql);
+        $statement->setFetchMode(\PDO::FETCH_ASSOC);
+        $statement->bindParam(':id', $except_product);
+        $statement->bindParam(':amount', $amount);
+
+        $statement->execute();
+        return $statement->fetchAll();
+    }
+
     public function updateSoldById($vendidos, $id){
         $sql = "update productos set vendidos = :vendidos where id = :id";
 

@@ -112,6 +112,23 @@ body{
     font-size: 20px;
     font-weight: bold;
 }
+.title-subcategory{
+    text-align: center;
+    margin: 20px;
+    padding: 10px;
+    font-size: 2rem;
+    font-weight: 600;
+    background: #4016a5;
+    color: #fff;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 20px rgb(0 0 0 / 20%);
+}
+.product-famous{
+    margin: 10px;
+    text-align: center;
+    font-weight: 600;
+    color: #d9ac36
+}
 .user {
     display: flex;
     margin-top: auto;

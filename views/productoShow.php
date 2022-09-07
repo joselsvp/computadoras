@@ -7,15 +7,10 @@ require_once 'sidebar.php'
 ?>
 
 <section class="home">
+    <div class="title-subcategory">
+        <?= ucfirst($product['categoria']) ?>
+    </div>
     <div class="container-cards">
-        <ul class="breadcrumb">
-            <li class="breadcrumb__item breadcrumb__item-firstChild">
-                <span class="breadcrumb__inner">
-                <span class="breadcrumb__title"><?= $product['categoria']?></span>
-                </span>
-            </li>
-        </ul>
-
         <div class="card">
             <div class="card-header" style="text-align: center">
                 <img src="<?= $product['url_image'] ?>" alt="<?= $product['modelo'] ?>" style="background-position: center; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; width: 200px">

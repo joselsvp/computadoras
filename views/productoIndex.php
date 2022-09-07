@@ -74,7 +74,7 @@ $getProducts = $products;
             <?php
             if (!empty($getProducts)){
                 foreach ($getProducts as $key => $product){ ?>
-                    <a href="" title="Ver <?= $product['modelo'] ?>">
+                    <a href="<?=base_url?>producto/show?id=<?=base64_encode($product['id'])?>" title="Ver <?= $product['modelo'] ?>">
                         <div class="card">
                             <div class="card-header" style="text-align: center">
                                 <img src="<?= $product['url_image'] ?>" alt="<?= $product['modelo'] ?>" style="background-position: center; background-size: cover; background-repeat: no-repeat; background-attachment: fixed; width: 200px">

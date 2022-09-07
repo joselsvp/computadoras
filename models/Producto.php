@@ -110,4 +110,16 @@ class Producto {
         $statement->execute();
         return $statement->fetchAll();
     }
+
+    public function findProductById($product_id){
+        $sql = 'SELECT p.id, p.modelo, p.especificaciones, p.precio, p.url_image, c.nombre as categoria FROM productos p
+                inner join categorias c on c.id = p.subcategory_id where p.id = :id';
+
+        $statement = Connection::getConnection()->prepare($sql);
+        $statement->setFetchMode(\PDO::FETCH_ASSOC);
+        $statement->bindParam(':id', $product_id);
+
+        $statement->execute();
+        return $statement->fetch();
+    }
 }

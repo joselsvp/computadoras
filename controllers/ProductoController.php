@@ -10,7 +10,7 @@ class productoController{
     public function index(){
         $categories = (new Categoria())->findAllCategoriesAndSubcategories() ;
         $products = (new Producto())->findAllProducts();
-        require_once 'views/productoView.php';
+        require_once 'views/productoIndex.php';
     }
 
     public function create(){
@@ -36,7 +36,18 @@ class productoController{
                 }
             }
         }
+    }
 
+    public function show(){
+        if(isset($_GET['id'])){
+            $product_content = (new Producto())->findProductById(base64_decode($_GET['id']));
+            if($product_content){
+                $categories = (new Categoria())->findAllCategoriesAndSubcategories() ;
+                $products = (new Producto())->findAllProducts();
+                require_once 'views/productoShow.php';
+
+            }
+        }
     }
 
 

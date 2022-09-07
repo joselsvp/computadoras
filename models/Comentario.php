@@ -101,7 +101,7 @@ class Comentario{
     }
 
     public function findCommentByProductId($product_id){
-        $sql = 'SELECT id, texto, nombre, calificacion from comentarios where producto_id = :product_id';
+        $sql = 'SELECT id, texto, nombre, calificacion from comentarios where producto_id = :product_id order by calificacion desc';
 
         $statement = Connection::getConnection()->prepare($sql);
         $statement->setFetchMode(\PDO::FETCH_ASSOC);

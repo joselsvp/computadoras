@@ -143,8 +143,9 @@ class Producto {
     }
 
     public function findProductBySubcategoryId($subcategory_id){
-        $sql = 'SELECT p.id, p.modelo, p.especificaciones, p.precio, p.url_image, p.vendidos, c.nombre as categoria FROM productos p
-                inner join categorias c on c.id = p.subcategory_id where c.id = :id';
+        $sql = 'SELECT p.id, p.modelo, p.especificaciones, p.precio, p.url_image, p.vendidos, c.nombre as categoria, (select count(co.id)) as cantidad_comentarios FROM productos p
+                inner join categorias c on c.id = p.subcategory_id 
+                inner join comentarios co on co.producto_id = p.id  where c.id = :id group by p.id';
 
         $statement = Connection::getConnection()->prepare($sql);
         $statement->setFetchMode(\PDO::FETCH_ASSOC);

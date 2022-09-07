@@ -50,7 +50,7 @@ $getProducts = $products;
                     }else{ ?>
                         <ul class="menu-links subcategorias_<?=$categories['categoria_hija'] ?>" style="display: none; margin-left: 8px; font-size: 14px">
                             <li class="nav-link">
-                                <a href="#">
+                                <a href="<?=base_url?>producto/index?id=<?=base64_encode($categories['id'])?>">
                                     <?= $categories['icon']; ?>
                                     <span class="text nav-text" style="font-size: 14px"><?= ucfirst($categories['nombre']) ?></span>
                                 </a>

@@ -9,7 +9,12 @@ class productoController{
 
     public function index(){
         $categories = (new Categoria())->findAllCategoriesAndSubcategories() ;
-        $products = (new Producto())->findAllProducts();
+        if (isset($_GET['id'])){
+            $products = (new Producto())->findProductBySubcategoryId(base64_decode($_GET['id']));
+        }else{
+            $products = (new Producto())->findAllProducts();
+        }
+
         require_once 'views/productoIndex.php';
     }
 

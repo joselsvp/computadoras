@@ -14,6 +14,7 @@ class productoController{
             $products = (new Producto())->findProductBySubcategoryId(base64_decode($_GET['id']));
         }else{
             $products = (new Producto())->findAllProducts();
+            error_log(print_r($products, true));
         }
 
         require_once 'views/productoIndex.php';
@@ -32,6 +33,7 @@ class productoController{
                     $producto->setModelo(addslashes($item->title));
                     $producto->setPrecio($item->price * 0.14);
                     $producto->setUrlImage($item->thumbnail);
+                    $producto->setVendidos(rand(1, 10000));
 
                     error_log(print_r($producto, true));
 

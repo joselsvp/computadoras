@@ -105,6 +105,13 @@ body{
     padding: 5px 0;
     font-size: 0.8rem;
 }
+
+.price-product {
+    color: #4016a5;
+    margin: 0 auto;
+    font-size: 20px;
+    font-weight: bold;
+}
 .user {
     display: flex;
     margin-top: auto;

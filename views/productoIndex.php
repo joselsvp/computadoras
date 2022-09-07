@@ -22,11 +22,12 @@ require_once 'sidebar.php'
                             <div class="card-body">
                                 <span class="tag tag-color"><?= $product['categoria'] ?></span>
                                 <p class="content-product"><?= $product['modelo'] ?></p>
+                                <span class="price-product">$ <?= number_format($product['precio'], 2) ?> MXN</span>
+
                                 <div class="user">
                                     <i class="fas fa-users"></i>
                                     <div class="user-info">
-                                        <h5>Comentarios</h5>
-                                        <small>Ninguno</small>
+                                        <h5>Comentarios <span style="color: #5018da"><?= $product['cantidad_comentarios']?></span></h5>
                                     </div>
                                 </div>
                             </div>

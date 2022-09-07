@@ -4,7 +4,6 @@ $getProducts = $products;
 $product = $product_content;
 $getComments = $comments;
 require_once 'sidebar.php'
-
 ?>
 
 <section class="home">
@@ -32,16 +31,12 @@ require_once 'sidebar.php'
             </div>
         </div>
 
-
     </div>
     <h2 style="text-align: center">Comentarios</h2>
 
-
     <div class="container-cards">
-
         <?php
         if(!empty($comments)){
-
             foreach ($comments as $comment){?>
                 <div class="card" style="width: 100%; font-size: 12px; margin: 10px 40px;">
                     <div class="" style="padding: 20px">
@@ -67,22 +62,21 @@ require_once 'sidebar.php'
                                 <span class="tag tag-color-green">Excelente</span> 5 estrellas
                                 <?php
                                 break;
+                            default:?> <span class="tag tag-color-green">Muy malo</span> 0 estrellas<?php
+                                break;
                         }
                         ?>
-
                         <p class="content-product" style="font-size: 12px"><strong><?= $comment['nombre'] ?></strong></p>
                         <p><?= $comment['texto'] ?></p>
-
                     </div>
                 </div>
             <?php
             }?>
         <?php
-
+        }else{
+            echo "<strong>Por el momento no hay comentarios.</strong>";
         }
-
         ?>
-
     </div>
 
 </section>

@@ -1,13 +1,14 @@
 <?php
 $getCategories = $categories;
 $getProducts = $products;
+$nameProduct = $nameProduct;
 
 require_once 'sidebar.php'
 ?>
 
 
 <section class="home">
-    <div class="text"><i class="fas fa-star"></i> Productos destacados</div>
+    <div class="text"> <?= ucfirst($nameProduct['nombre']) ?></div>
 
     <div class="container">
         <div class="container-cards">

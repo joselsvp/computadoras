@@ -85,6 +85,17 @@ class Categoria{
         return $statement->fetch();
     }
 
+    public function findCategoryNameById($id){
+        $sql = 'select nombre from categorias where id = :id';
+
+        $statement = Connection::getConnection()->prepare($sql);
+        $statement->bindParam(":id", $id);
+        $statement->setFetchMode(\PDO::FETCH_ASSOC);
+
+        $statement->execute();
+        return $statement->fetch();
+    }
+
     public function findAllCategoriesAndSubcategories(){
         $sql = 'select id, nombre, categoria_hija, icon from categorias';
 

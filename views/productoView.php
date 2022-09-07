@@ -60,6 +60,8 @@ $getProducts = $products;
                     } ?>
                     <?php
                 }
+            }else{
+                echo  "<strong>Lo sentimos, por el momento no hay categor&iacute;as. </strong>";
             }?>
         </div>
 </nav>

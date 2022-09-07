@@ -134,4 +134,16 @@ class Producto {
         $statement->execute();
         return $statement->fetchAll();
     }
+
+    public function updateSoldById($vendidos, $id){
+        $sql = "update productos set vendidos = :vendidos where id = :id";
+
+        $statement = Connection::getConnection()->prepare($sql);
+        $statement->bindParam(':id', $id);
+        $statement->bindParam(':vendidos', $vendidos);
+
+        $statement->execute();
+
+        return "Se ha guardado el producto";
+    }
 }

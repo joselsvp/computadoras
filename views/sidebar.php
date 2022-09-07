@@ -19,7 +19,7 @@
     <header>
         <div class="image-text">
             <div class="text logo-text">
-                <h1 class="">Light<span style="color:#ebce00;">Store</span></h1>
+                <h1 class=""><a href="<?= base_url ?>">Light<span style="color:#ebce00;">Store</span></a></h1>
             </div>
         </div>
 

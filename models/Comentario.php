@@ -111,5 +111,16 @@ class Comentario{
         return $statement->fetchAll();
     }
 
+    public function findCommentBestRatingByProductId($product_id){
+        $sql = 'SELECT  id, texto, nombre, calificacion from comentarios where producto_id = :product_id order by calificacion desc limit 1';
+
+        $statement = Connection::getConnection()->prepare($sql);
+        $statement->setFetchMode(\PDO::FETCH_ASSOC);
+        $statement->bindParam(':product_id', $product_id);
+
+        $statement->execute();
+        return $statement->fetch();
+    }
+
 
 }

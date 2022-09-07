@@ -23,8 +23,34 @@ class ComentarioController
             error_log(print_r($comentario, true));
 
         }
+    }
 
+    public function updateProducts(){
+        $products = (new Producto())->findAllProducts();
 
+        foreach ($products as $product){
+            $comentario = new Comentario();
+
+            $getComment = $comentario->findCommentBestRatingByProductId($product['id']);
+
+            switch($getComment['calificacion']){
+                case 1:
+                    (new Producto())->updateSoldById(rand(10,100), $product['id']);
+                    break;
+                case 2:
+                    (new Producto())->updateSoldById(rand(100,1000), $product['id']);
+                    break;
+                case 3:
+                    (new Producto())->updateSoldById(rand(1000,10000), $product['id']);
+                    break;
+                case 4:
+                    (new Producto())->updateSoldById(rand(10000,100000), $product['id']);
+                    break;
+                case 5:
+                    (new Producto())->updateSoldById(rand(100000,1000000), $product['id']);
+                    break;
+            }
+        }
     }
 
 

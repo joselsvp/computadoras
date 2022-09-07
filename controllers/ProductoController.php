@@ -14,7 +14,7 @@ class productoController{
             $nameProduct = (new Categoria())->findCategoryNameById(base64_decode($_GET['id']));
             $products = $this->getProductMostFamousAndSold((new Producto())->findProductBySubcategoryId(base64_decode($_GET['id'])), 5, 5);
         }else{
-            $nameProduct = "Todos los productos";
+            $nameProduct['nombre'] = "Todos los productos";
             $products = $this->getProductMostFamousAndSold((new Producto())->findAllProducts());
         }
 

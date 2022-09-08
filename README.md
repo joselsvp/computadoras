@@ -18,6 +18,8 @@ Nivel elegido: Intermedio
 Instrucciones:
 1. Cargar la base de datos adjunta.
 2. Establecer la conexión a la base de datos en el archivo database_config.php
+![image](https://user-images.githubusercontent.com/54222990/189005603-ab99f0aa-248c-448d-b9ae-db42cd725b20.png)
+
 3. crear un dominio virtual como por ejemplo http://computadoras.villadigitals.com.mx/  para poder ejecutar el proyecto, dicha ruta se debe declarar en el archivo parameters.php
 
 ![image](https://user-images.githubusercontent.com/54222990/189005558-608e6e64-b7d1-47f3-80f2-bd41732741e4.png)
